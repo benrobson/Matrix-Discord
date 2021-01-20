@@ -1,7 +1,5 @@
 package me.benrobson.MatrixDiscord;
 
-import me.benrobson.MatrixDiscord.discord.MatrixDiscordMain;
-
 public class ConfigurationManager {
     static MatrixDiscordMain plugin;
     public ConfigurationManager(MatrixDiscordMain plugin) {
