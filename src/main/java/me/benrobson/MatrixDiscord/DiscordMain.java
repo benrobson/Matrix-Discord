@@ -18,14 +18,13 @@ public class DiscordMain extends ListenerAdapter implements Listener {
         this.plugin = plugin;
 
         if (startBot()) {
-            registerDiscordEventListeners();
+//            registerDiscordEventListeners();
         }
     }
 
-    private void registerDiscordEventListeners() {
-        this.jda.addEventListener(this);
-//            this.jda.addEventListener(new ChatEvent());
-    }
+//    private void registerDiscordEventListeners() {
+//        this.jda.addEventListener(this);
+//    }
 
     //
     // Start the Discord side bot
@@ -35,10 +34,10 @@ public class DiscordMain extends ListenerAdapter implements Listener {
             // Build JDA/bot connection
             jda = JDABuilder.createDefault(plugin.getConfig().getString("discordapitoken")).build();
             // Show signs of life
-            plugin.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix") + " " + plugin.getDescription().getName() +" is now connected to Discord.\nConnected Discord Server Name: " + ChatColor.YELLOW + jda.getGuilds()));
+            plugin.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix") + plugin.getDescription().getName() +" is now connected to Discord.\nConnected Discord Server Name: " + ChatColor.YELLOW + jda.getGuilds()));
             return true;
         } catch (LoginException e) {
-            plugin.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix") + " " + plugin.getDescription().getName() + " has encountered an error and can't login to Discord. The Discord Token may not be set, Discord integrations might not function."));
+            plugin.getServer().getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix") + plugin.getDescription().getName() + " has encountered an error and can't login to Discord. The Discord Token may not be set, Discord integrations might not function."));
         }
         return false;
     }
