@@ -1,0 +1,7 @@
+main: me.benrobson.MatrixDiscord.MatrixDiscordMain
+name: MatrixDiscord
+version: 1.0
+author: Ben Robson
+api-version: 1.16
+depend:
+  - Matrix
