@@ -2,6 +2,7 @@ package me.benrobson.MatrixDiscord.events;
 
 import me.benrobson.MatrixDiscord.DiscordMain;
 import me.benrobson.MatrixDiscord.MatrixDiscordMain;
+import me.rerere.matrix.api.events.PlayerViolationCommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
 import org.bukkit.event.EventHandler;
@@ -9,20 +10,22 @@ import org.bukkit.event.Listener;
 
 import java.awt.*;
 
-public class PlayerViolationEvent implements Listener {
+public class PlayerViolationCommand implements Listener {
     private static MatrixDiscordMain plugin;
-    public PlayerViolationEvent(MatrixDiscordMain plugin) {
+    public PlayerViolationCommand(MatrixDiscordMain plugin) {
         this.plugin = plugin;
     }
 
     @EventHandler
-    public void PlayerViolationEvent(PlayerViolationEvent event) {
-        System.out.println(event);
+    public void PlayerViolation(PlayerViolationCommandEvent event) {
+        String MatrixMessage = event.getCommand();
 
         EmbedBuilder embed = new EmbedBuilder();
-        embed.setTitle("Player Violation");
-        embed.setColor(Color.ORANGE);
-        embed.addField("Name", "Online", true);
+        embed.setTitle("Player Violation Command Triggered :: " + event.getHackType());
+        embed.setColor(Color.YELLOW);
+        embed.setDescription(MatrixMessage.substring(MatrixMessage.indexOf(" ") + 1));
+        embed.addField("Name", event.getPlayer().getDisplayName(), true);
+        embed.setFooter("MatrixToDiscord");
 
         TextChannel textChannel = DiscordMain.jda.getTextChannelsByName(plugin.getConfig().getString("matrixnotificationchannel"), true).get(0);
         textChannel.sendMessage(embed.build()).queue();
