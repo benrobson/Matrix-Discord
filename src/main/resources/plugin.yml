@@ -1,5 +1,5 @@
 main: me.benrobson.MatrixDiscord.MatrixDiscordMain
-name: MatrixDiscord
+name: MatrixToDiscord
 version: 1.0
 author: Ben Robson
 api-version: 1.16
