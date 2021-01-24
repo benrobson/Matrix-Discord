@@ -1,6 +1,6 @@
 package me.benrobson.MatrixDiscord;
 
-import me.benrobson.MatrixDiscord.events.PlayerViolationCommand;
+import me.benrobson.MatrixDiscord.events.PlayerViolation;
 import me.rerere.matrix.api.MatrixAPI;
 import me.rerere.matrix.api.MatrixAPIProvider;
 import net.md_5.bungee.api.ChatColor;
@@ -23,8 +23,7 @@ public class MatrixDiscordMain extends JavaPlugin {
 
         // Event Registry
         PluginManager pluginmanager = plugin.getServer().getPluginManager();
-//        pluginmanager.registerEvents(new PlayerViolation(this), this);
-        pluginmanager.registerEvents(new PlayerViolationCommand(this), this);
+        pluginmanager.registerEvents(new PlayerViolation(this), this);
 
         DiscordMain DiscordMain = new DiscordMain(this);
         saveConfig();
