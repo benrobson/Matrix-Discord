@@ -1,6 +1,6 @@
 main: me.benrobson.MatrixDiscord.MatrixDiscordMain
 name: MatrixToDiscord
-version: 1.2
+version: ${project.version}
 author: Ben Robson
 api-version: 1.16
 depend:

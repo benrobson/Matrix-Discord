@@ -21,7 +21,7 @@ public class PlayerViolation implements Listener {
         EmbedBuilder embed = new EmbedBuilder();
         embed.setTitle("Player Violation");
         embed.setColor(Color.YELLOW);
-        embed.setDescription(event.getPlayer().getDisplayName() + "has been flagged for " + event.getHackType());
+        embed.setDescription(event.getPlayer().getDisplayName() + " has been flagged for " + event.getHackType());
         embed.setFooter("MatrixToDiscord");
 
         TextChannel textChannel = DiscordMain.jda.getTextChannelsByName(plugin.getConfig().getString("matrixnotificationchannel"), true).get(0);
