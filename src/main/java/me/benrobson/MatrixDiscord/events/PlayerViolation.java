@@ -22,10 +22,12 @@ public class PlayerViolation implements Listener {
         embed.setTitle("Player Violation");
         embed.setColor(Color.YELLOW);
         embed.setDescription(event.getPlayer().getDisplayName() + " has been flagged for " + event.getHackType());
-        embed.setFooter("MatrixToDiscord");
+        embed.setFooter("MatrixToDiscord | " + "Server: " + plugin.getConfig().getString("server"));
 
         TextChannel textChannel = DiscordMain.jda.getTextChannelsByName(plugin.getConfig().getString("matrixnotificationchannel"), true).get(0);
-        textChannel.sendMessage(embed.build()).queue();
+        textChannel.sendMessage(embed.build()).queue(message -> {
+            message.addReaction("\uD83D\uDC4D").queue();
+        });
     }
 
 }
